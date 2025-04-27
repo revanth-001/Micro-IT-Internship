@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Shortener</title>
+  <style>
+    body {
+      background: #101010;
+      color: #aad8ff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #60aaff;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      background: #1a1a2e;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #101030;
+      color: #aad8ff;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #00f0ff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #00c8cc;
+    }
+
+    #shortenedURL {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #101030;
+      color: #aad8ff;
+      word-wrap: break-word;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<h1>URL Shortener</h1>
+
+<div class="container">
+  <input type="text" id="longURL" placeholder="Enter your long URL here..." />
+  <button onclick="generateShortURL()">Shorten URL</button>
+  <div id="shortenedURL"></div>
+</div>
+
+<script>
+  function generateShortURL() {
+    const longURL = document.getElementById('longURL').value;
+    if (longURL === '') {
+      alert('Please enter a URL.');
+      return;
+    }
+
+    // Generate a random string as the shortened URL (for demo purposes)
+    const randomString = Math.random().toString(36).substring(7);
+
+    // Simulate the shortened URL
+    const shortURL = `https://short.ly/${randomString}`;
+
+    // Display the shortened URL
+    document.getElementById('shortenedURL').innerHTML = `Shortened URL: <a href="${longURL}" target="_blank">${shortURL}</a>`;
+  }
+</script>
+
+</body>
+</html>
